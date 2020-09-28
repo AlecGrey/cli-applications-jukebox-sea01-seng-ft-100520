@@ -25,12 +25,14 @@ def play(array)
   
   if user_input.to_i <= array.length && user_input.to_i >= 1
     puts "Playing #{array[user_input.to_i - 1]}"
-  elsif array.find {|song| song == user_input}
+  elsif array.include?(user_input)
     puts "Playing #{user_input}"
   else
     puts "Invalid input, please try again"
   end
 end
+
+play(songs)
 
 def list(array)
   array.each_with_index {|song, i| puts "#{i + 1}. #{song}"}
